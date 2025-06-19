@@ -1,3 +1,4 @@
+using Hospital.Application.Interfaces;
 using Hospital.Domain.Interfaces;
 using Hospital.Infrastructure.Data;
 using Hospital.Infrastructure.Repositories;
@@ -21,6 +22,26 @@ builder.Services.AddScoped<IDischargeSummaryRepository, DischargeSummaryReposito
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IReceptionistRepository, ReceptionistRepository>();
 builder.Services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
+builder.Services.AddScoped<IMedicalServiceRepository, MedicalServiceRepository>();
+
+builder.Services.AddScoped<ISurgeryRepository, SurgeryRepository>();
+builder.Services.AddScoped<ISurgeryStaffRepository, SurgeryStaffRepository>();
+builder.Services.AddScoped<ISurgerySupplyRepository, SurgerySupplyRepository>();
+
+builder.Services.AddScoped<IPatientStayRepository, PatientStayRepository>();
+builder.Services.AddScoped<IStaySupplyRepository, StaySupplyRepository>();
+
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<IBedRepository, BedRepository>();
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<ICashTransactionRepository, CashTransactionRepository>();
+builder.Services.AddScoped<IPatientAccountRepository, PatientAccountRepository>();
+
+builder.Services.AddScoped<IEmployeeSalaryRepository, EmployeeSalaryRepository>();
+builder.Services.AddScoped<IEmployeeLoanRepository, EmployeeLoanRepository>();
+builder.Services.AddScoped<IEmployeeAdjustmentRepository, EmployeeAdjustmentRepository>();
+
 
 
 
