@@ -1,5 +1,6 @@
 ﻿using Hospital.Application.Interfaces;
 using Hospital.Domain.Users.Inpatients;
+using Hospital.Domain.Users.Rooms;
 using Hospital.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

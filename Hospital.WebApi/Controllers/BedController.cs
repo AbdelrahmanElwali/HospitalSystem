@@ -1,5 +1,6 @@
 ﻿using Hospital.Application.Interfaces;
 using Hospital.Domain.Users.Inpatients;
+using Hospital.Domain.Users.Rooms;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.API.Controllers

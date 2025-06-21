@@ -13,6 +13,7 @@ using Hospital.Domain.Users.Inpatients;
 using Hospital.Domain.Users.Payments;
 using Hospital.Domain.Users.Finance;
 using Hospital.Domain.Users.HumanResources;
+using Hospital.Domain.Users.Rooms;
 
 namespace Hospital.Infrastructure.Data
 {
@@ -83,7 +84,6 @@ namespace Hospital.Infrastructure.Data
                 .WithMany(s => s.DoctorSpecilizations)
                 .HasForeignKey(ds => ds.SpecilizationId);
 
-            //  Surgery → SurgeryStaff / SurgerySupply
             modelBuilder.Entity<Surgery>()
                 .HasMany(s => s.Staff)
                 .WithOne(ss => ss.Surgery)
@@ -96,14 +96,18 @@ namespace Hospital.Infrastructure.Data
                 .HasForeignKey(ss => ss.SurgeryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            //  Room → Beds
             modelBuilder.Entity<Room>()
                 .HasMany(r => r.Beds)
                 .WithOne(b => b.Room)
                 .HasForeignKey(b => b.RoomId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            //  Payment: optional relations
+            modelBuilder.Entity<Bed>()
+                .HasOne(b => b.PatientStay)
+                .WithOne(ps => ps.Bed)
+                .HasForeignKey<Bed>(b => b.PatientStayId)
+                .OnDelete(DeleteBehavior.SetNull); // يجعل السرير متاح عند إزالة الإقامة
+
             modelBuilder.Entity<Payment>()
                 .HasOne<Surgery>()
                 .WithMany()
@@ -119,8 +123,8 @@ namespace Hospital.Infrastructure.Data
             modelBuilder.Entity<EmployeeAdjustment>()
                 .Property(e => e.Type)
                 .HasConversion<string>();
-
         }
+
 
 
 

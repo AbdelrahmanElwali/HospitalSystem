@@ -1,4 +1,5 @@
 ﻿using Hospital.Domain.Users.Inpatients;
+using Hospital.Domain.Users.Rooms;
 
 namespace Hospital.Application.Interfaces
 {

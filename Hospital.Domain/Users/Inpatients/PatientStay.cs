@@ -1,4 +1,6 @@
-﻿namespace Hospital.Domain.Users.Inpatients
+﻿using Hospital.Domain.Users.Rooms;
+
+namespace Hospital.Domain.Users.Inpatients
 {
     public class PatientStay : EntityBase
     {
@@ -9,5 +11,7 @@
         public decimal Cost { get; set; }
         public decimal Discount { get; set; }
         public decimal Paid { get; set; }
+
+        public Bed? Bed { get; set; }
     }
 }
